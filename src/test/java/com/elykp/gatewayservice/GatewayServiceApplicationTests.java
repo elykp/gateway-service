@@ -1,4 +1,4 @@
-package com.example.apigateway;
+package com.elykp.gatewayservice;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootTest
-class ApiGatewayApplicationTests {
+class GatewayServiceApplicationTests {
 
   @Test
   void contextLoads(ApplicationContext context) {

@@ -1,4 +1,4 @@
-package com.example.apigateway.configs;
+package com.elykp.gatewayservice.configs;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
