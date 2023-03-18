@@ -1,0 +1,33 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: gateway-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OAUTH2_AUTHORITY:http://localhost:8080/realms/elykp}
+          jwk-set-uri: ${OAUTH2_JWKS_URI:http://localhost:8080/realms/elykp/protocol/openid-connect/certs}
+  cloud:
+    gateway:
+      routes:
+        - id: core-service
+          uri: lb://core-service
+          predicates:
+            - Path=/api/tags/**,/api/photos/**
+        - id: asset-service
+          uri: lb://asset-service
+          predicates:
+            - Path=/api/assets/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
+
+oauth:
+  scope:
+    asset: SCOPE_asset-service
+    core: SCOPE_core-service
